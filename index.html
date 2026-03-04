@@ -561,29 +561,36 @@
 <!-- 不蒜子脚本 -->
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+<!-- 浏览量统计（带初始值） -->
+<div style="margin-top: 10px; font-size: 13px;">
+    <span>本站总浏览量：</span>
+    <!-- 不蒜子原始数字隐藏（不显示） -->
+    <span id="busuanzi_value_site_pv" style="display: none;"></span>
+    <!-- 自定义显示总和 -->
+    <span id="custom_pv_display" style="font-weight: 600;">0</span>
+    <span>次</span>
+</div>
+
+<!-- 不蒜子脚本 -->
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <!-- 初始化脚本（修复数字显示） -->
 <script>
 (function() {
-    var countOffset = 15200; // 请确认这个值是你想要的起点
+    var countOffset = 15200; // 改成你的起点数字
     var displaySpan = document.getElementById('custom_pv_display');
     var valueSpan = document.getElementById('busuanzi_value_site_pv');
 
     var timer = setInterval(function() {
-        if (valueSpan && valueSpan.innerText) {  // 改用 innerText 避免 HTML 标签干扰
-            // 只保留数字（去掉所有非数字字符，如空格、逗号等）
+        if (valueSpan && valueSpan.innerText) {
+            // 只保留数字（去掉空格、逗号等）
             var cleanNum = valueSpan.innerText.replace(/[^0-9]/g, '');
             var bszNum = parseInt(cleanNum, 10) || 0;
             var totalNum = bszNum + countOffset;
-            displaySpan.innerText = totalNum;  // 用 innerText 赋值
+            displaySpan.innerText = totalNum; // 使用 innerText 避免 HTML 解析
             clearInterval(timer);
         }
     }, 100);
-
-    // 可选：强制取消父元素的字符间距（避免空格影响）
-    if (displaySpan) {
-        displaySpan.style.letterSpacing = 'normal';
-        displaySpan.style.wordSpacing = 'normal';
-    }
 })();
 </script>
 </body>
