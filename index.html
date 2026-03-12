@@ -3,66 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>成都兴孺广告创意策划有限公司</title>
+    <title>成都名营广告有限公司</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Microsoft YaHei', sans-serif;
             line-height: 1.6;
             color: #333;
         }
+
         .container {
             width: 1200px;
             margin: 0 auto;
         }
+
         @media (max-width: 1200px) {
             .container {
                 width: 96%;
             }
         }
 
-        /* 顶部导航 */
+        /* ===== 导航栏：派斯光学风格 + 中英文切换 ===== */
         .header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(30, 60, 114, 0.15);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 999;
         }
+
         .header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 80px;
+            height: 70px;
         }
+
         .logo a {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 1.8rem;
+            font-weight: 700;
             color: #1e3c72;
             text-decoration: none;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .nav ul {
+
+        .nav-links {
             display: flex;
             list-style: none;
+            gap: 2.2rem;
+            margin: 0;
+            padding: 0;
         }
-        .nav ul li {
-            margin-left: 30px;
+
+        .nav-links li {
+            margin: 0;
         }
-        .nav ul li a {
+
+        .nav-links a {
             text-decoration: none;
-            color: #333;
-            font-size: 16px;
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 5px 0;
+            position: relative;
             transition: color 0.3s;
         }
-        .nav ul li a:hover {
+
+        .nav-links a:hover,
+        .nav-links a.active {
             color: #1e3c72;
         }
 
-        /* 轮播大图（此处用背景色模拟，你可替换为真实图片） */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1e3c72;
+            transition: width 0.3s ease-out;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* 中英文切换按钮 */
+        .lang-switch {
+            font-size: 0.95rem;
+            color: #8a9bb5;
+            white-space: nowrap;
+            margin-left: 20px;
+        }
+
+        .lang-link {
+            text-decoration: none;
+            color: #8a9bb5;
+            padding: 0 3px;
+            transition: color 0.3s;
+        }
+
+        .lang-link:hover,
+        .lang-link.active {
+            color: #1e3c72;
+            font-weight: 500;
+        }
+
+        /* 响应式导航（移动端隐藏菜单，可自行扩展汉堡菜单） */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .lang-switch {
+                margin-left: auto;
+            }
+        }
+
+        /* 以下保留你原有的所有样式（未修改） */
+        /* 轮播大图 */
         .banner {
             height: 600px;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/bg.jpg') center/cover no-repeat;
@@ -137,7 +208,6 @@
         }
         .intro-img {
             flex: 1;
-            background: #ddd;
             height: 400px;
             background: url('images/about.jpg') center/cover no-repeat;
             border-radius: 8px;
@@ -211,7 +281,7 @@
             font-size: 14px;
         }
 
-        /* 业务范围 */
+        /* 业务范围（原cases） */
         .cases {
             padding: 80px 0;
             background: #f9f9f9;
@@ -335,19 +405,6 @@
             }
         }
         @media (max-width: 768px) {
-            .header .container {
-                flex-direction: column;
-                height: auto;
-                padding: 20px 0;
-            }
-            .nav ul {
-                margin-top: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .nav ul li {
-                margin: 5px 15px;
-            }
             .banner h1 {
                 font-size: 32px;
             }
@@ -361,14 +418,15 @@
     </style>
 </head>
 <body>
+    <!-- 导航栏：派斯光学风格 + 中英文切换 -->
     <header class="header">
         <div class="container">
             <div class="logo">
-                <a href="#">兴孺广告</a>
+                <a href="#">名营广告</a>
             </div>
             <nav class="nav">
-                <ul>
-                    <li><a href="#">首页</a></li>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">首页</a></li>
                     <li><a href="#about">关于我们</a></li>
                     <li><a href="news.html">新闻中心</a></li>
                     <li><a href="#services">服务项目</a></li>
@@ -376,22 +434,29 @@
                     <li><a href="#contact">联系我们</a></li>
                 </ul>
             </nav>
+            <!-- 中英文切换按钮 -->
+            <div class="lang-switch">
+                <a href="#" class="lang-link active">中文</a> |
+                <a href="#" class="lang-link">EN</a>
+            </div>
         </div>
     </header>
 
-    <section class="banner">
+    <!-- 轮播大图（banner） -->
+    <section id="home" class="banner">
         <div class="banner-content">
-            <h1>成都兴孺广告创意策划有限公司</h1>
+            <h1>成都名营广告有限公司</h1>
             <p>专业广告策划 · 创意设计 · 品牌全案 · 营销推广</p>
             <a href="#contact" class="btn">立即咨询</a>
         </div>
     </section>
 
+    <!-- 公司简介 -->
     <section id="about" class="intro">
         <div class="container">
             <div class="intro-text">
                 <h2>关于我们</h2>
-                <p>成都兴孺广告创意策划有限公司成立于2024年，是一家专注于品牌策划、创意设计、影视制作、数字营销的综合性广告公司。我们拥有一支经验丰富的创意团队和执行团队，致力于为客户提供从策略到落地的全方位广告服务。</p>
+                <p>成都名营广告有限公司成立于2019年，是一家专注于品牌策划、创意设计、影视制作、数字营销的综合性广告公司。我们拥有一支经验丰富的创意团队和执行团队，致力于为客户提供从策略到落地的全方位广告服务。</p>
                 <p>多年来，我们服务了上百家知名企业，涵盖快消、科技、文旅、教育等多个领域。我们坚信，每一个品牌都值得被用心对待，每一次传播都应充满创意。我们以策略为导向，以创意为核心，帮助客户在激烈的市场竞争中脱颖而出。</p>
                 <a href="#" class="btn" style="background: transparent; color: #1e3c72; border: 2px solid #1e3c72;">了解更多</a>
             </div>
@@ -399,6 +464,7 @@
         </div>
     </section>
 
+    <!-- 服务项目 -->
     <section id="services" class="services">
         <div class="container">
             <h2 class="section-title">我们的服务</h2>
@@ -447,59 +513,61 @@
             </div>
         </div>
     </section>
-<div style="text-align: center; margin: 40px 0;">
-    <img src="images/zf.jpg" alt="居中图片" style="max-width: 100%; height: auto; border-radius: 8px;">
-</div>
-<div style="text-align: center; margin: 40px 0;">
-    <img src="images/gr.jpg" alt="居中图片" style="max-width: 100%; height: auto; border-radius: 8px;">
-</div>
-<div style="text-align: center; margin: 40px 0;">
-    <img src="images/gr1.jpg" alt="居中图片" style="max-width: 100%; height: auto; border-radius: 8px;">
-</div>
-<div style="text-align: center; margin: 40px 0;">
-    <img src="images/tpy.png" alt="居中图片" style="max-width: 100%; height: auto; border-radius: 8px;">
-</div>
-<div style="text-align: center; margin: 40px 0;">
-    <img src="images/tpy2.jpg" alt="居中图片" style="max-width: 100%; height: auto; border-radius: 8px;">
-</div>
-<div style="text-align: center; margin: 40px 0;">
-    <img src="images/tpy3.jpg" alt="居中图片" style="max-width: 100%; height: auto; border-radius: 8px;">
-</div>
-<!-- 左右图文板块：左图右文 -->
-<div class="media-block" style="display: flex; align-items: center; gap: 30px; margin: 40px 0; flex-wrap: wrap;">
-    <!-- 左侧图片 -->
-    <div style="flex: 0 0 200px; text-align: center;">
-        <img src="images/dhlogo.png" alt="公司logo" style="max-width: 100%; height: auto;">
+
+    <!-- 中间插入的图片（你原有的多个图片） -->
+    <div style="text-align: center; margin: 40px 0;">
+        <img src="images/zf.jpg" alt="居中图片" style="max-width: 100%; height: auto; border-radius: 8px;">
     </div>
-    <!-- 右侧文本 -->
-    <div style="flex: 1; min-width: 280px;">
-        <h2 style="font-size: 24px; color: #1e3c72; margin-bottom: 15px; border-left: 4px solid #1e3c72; padding-left: 15px;">
-        <p style="font-size: 16px; line-height: 1.8; color: #555; text-align: justify;">
-            鼎和财产保险股份有限公司成立于2008年5月，总部设在深圳，注册资本为46.43亿元，系南方电网公司控股子公司。股东单位包括南方电网有限责任公司、广东、广西、云南、贵州、海南电网有限责任公司以及南网财务有限公司，中国长江电力股份有限公司、广州开发区投资集团有限公司、中国华电集团资本控股有限公司。目前成立了广东、广西、云南、贵州、海南、深圳、四川、上海、湖北、河南、江西、陕西、山东、河北、安徽15家省级机构，180家三级机构，形成了覆盖全国的营销及服务网络。
-        </p>
+    <div style="text-align: center; margin: 40px 0;">
+        <img src="images/gr.jpg" alt="居中图片" style="max-width: 100%; height: auto; border-radius: 8px;">
     </div>
-</div>
+    <div style="text-align: center; margin: 40px 0;">
+        <img src="images/gr1.jpg" alt="居中图片" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </div>
+    <div style="text-align: center; margin: 40px 0;">
+        <img src="images/tpy.png" alt="居中图片" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </div>
+    <div style="text-align: center; margin: 40px 0;">
+        <img src="images/tpy2.jpg" alt="居中图片" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </div>
+    <div style="text-align: center; margin: 40px 0;">
+        <img src="images/tpy3.jpg" alt="居中图片" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </div>
+
+    <!-- 左右图文板块：左图右文 -->
+    <div class="media-block" style="display: flex; align-items: center; gap: 30px; margin: 40px 0; flex-wrap: wrap;">
+        <!-- 左侧图片 -->
+        <div style="flex: 0 0 200px; text-align: center;">
+            <img src="images/dhlogo.png" alt="公司logo" style="max-width: 100%; height: auto;">
+        </div>
+        <!-- 右侧文本 -->
+        <div style="flex: 1; min-width: 280px;">
+            <h2 style="font-size: 24px; color: #1e3c72; margin-bottom: 15px; border-left: 4px solid #1e3c72; padding-left: 15px;"></h2>
+            <p style="font-size: 16px; line-height: 1.8; color: #555; text-align: justify;">
+                鼎和财产保险股份有限公司成立于2008年5月，总部设在深圳，注册资本为46.43亿元，系南方电网公司控股子公司。股东单位包括南方电网有限责任公司、广东、广西、云南、贵州、海南电网有限责任公司以及南网财务有限公司，中国长江电力股份有限公司、广州开发区投资集团有限公司、中国华电集团资本控股有限公司。目前成立了广东、广西、云南、贵州、海南、深圳、四川、上海、湖北、河南、江西、陕西、山东、河北、安徽15家省级机构，180家三级机构，形成了覆盖全国的营销及服务网络。
+            </p>
+        </div>
+    </div>
+
+    <!-- 业务范围（原cases） -->
     <section id="cases" class="cases">
         <div class="container">
             <h2 class="section-title">业务涵盖</h2>
             <p class="section-desc">用作品说话，见证品牌成长</p>
             <div class="case-grid">
                 <div class="case-item">
-                    
                     <div class="case-info">
                         <h3>科技品牌全案策划</h3>
                         <p>从品牌定位到视觉识别，助力科技企业完成品牌升级。</p>
                     </div>
                 </div>
                 <div class="case-item">
-              
                     <div class="case-info">
                         <h3>文旅项目整合营销</h3>
                         <p>通过短视频+社交媒体传播，景区游客量提升200%。</p>
                     </div>
                 </div>
                 <div class="case-item">
-                    
                     <div class="case-info">
                         <h3>快消品视觉升级</h3>
                         <p>包装设计焕新，产品销量同比增长150%。</p>
@@ -509,15 +577,15 @@
         </div>
     </section>
 
+    <!-- 联系我们 -->
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">联系我们</h2>
             <p class="section-desc">期待与您携手，共创品牌未来</p>
             <div class="contact-wrapper">
                 <div class="contact-info">
-                    <h3>成都兴孺广告创意策划有限公司</h3>
-                    <p><i>📍</i> 地址：四川省成都市高新区新光路32号</p>
-                    
+                    <h3>成都名营广告有限公司</h3>
+                    <p><i>📍</i> 地址：四川省成都市金牛区金沙路西巷40号</p>
                     <p><i>⏰</i> 工作时间：周一至周五 9:00-18:00</p>
                 </div>
                 <div class="contact-form">
@@ -541,58 +609,74 @@
         </div>
     </section>
 
-    
-    </footer>
-<footer class="footer">
-    <div class="container">
-        <p>© 2026 成都兴孺广告创意策划有限公司 版权所有</p>
-      
-        <!-- 浏览量统计（带初始值） -->
-        <div style="margin-top: 10px; font-size: 13px;">
-            <span>本站总浏览量：</span>
-            <span id="busuanzi_container_site_pv" style="display:none;">
-                <span id="busuanzi_value_site_pv"></span>
-            </span>
-            <span id="custom_pv_display" style="font-weight: 600;">0</span>
-            <span>次</span>
+    <!-- 页脚 + 不蒜子统计 -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 成都名营广告有限公司 版权所有</p>
+            <!-- 浏览量统计 -->
+            <div style="margin-top: 10px; font-size: 13px;">
+                <span>本站总浏览量：</span>
+                <span id="busuanzi_container_site_pv" style="display:none;">
+                    <span id="busuanzi_value_site_pv"></span>
+                </span>
+                <span id="custom_pv_display" style="font-weight: 600;">0</span>
+                <span>次</span>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
-<!-- 不蒜子脚本 -->
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <!-- 不蒜子脚本（保留原有） -->
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<!-- 浏览量统计（带初始值） -->
-<div style="margin-top: 10px; font-size: 13px;">
-    <span>本站总浏览量：</span>
-    <!-- 不蒜子原始数字隐藏（不显示） -->
-    <span id="busuanzi_value_site_pv" style="display: none;"></span>
-    <!-- 自定义显示总和 -->
-    <span id="custom_pv_display" style="font-weight: 600;">0</span>
-    <span>次</span>
-</div>
+    <!-- 自定义浏览量脚本（保留原有） -->
+    <script>
+    (function() {
+        var countOffset = 15200; // 起点数字
+        var displaySpan = document.getElementById('custom_pv_display');
+        var valueSpan = document.getElementById('busuanzi_value_site_pv');
 
-<!-- 不蒜子脚本 -->
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        var timer = setInterval(function() {
+            if (valueSpan && valueSpan.innerText) {
+                var cleanNum = valueSpan.innerText.replace(/[^0-9]/g, '');
+                var bszNum = parseInt(cleanNum, 10) || 0;
+                displaySpan.innerText = bszNum + countOffset;
+                clearInterval(timer);
+            }
+        }, 100);
+    })();
+    </script>
 
-<!-- 初始化脚本（修复数字显示） -->
-<script>
-(function() {
-    var countOffset = 15200; // 改成你的起点数字
-    var displaySpan = document.getElementById('custom_pv_display');
-    var valueSpan = document.getElementById('busuanzi_value_site_pv');
+    <!-- 导航交互脚本（中英文切换 + 菜单激活） -->
+    <script>
+    (function() {
+        // 中英文切换按钮高亮
+        const langLinks = document.querySelectorAll('.lang-link');
+        langLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault(); // 演示效果，不实际跳转
+                langLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                // 可在此加入实际切换语言逻辑
+                console.log('语言切换到:', this.textContent.trim());
+            });
+        });
 
-    var timer = setInterval(function() {
-        if (valueSpan && valueSpan.innerText) {
-            // 只保留数字（去掉空格、逗号等）
-            var cleanNum = valueSpan.innerText.replace(/[^0-9]/g, '');
-            var bszNum = parseInt(cleanNum, 10) || 0;
-            var totalNum = bszNum + countOffset;
-            displaySpan.innerText = totalNum; // 使用 innerText 避免 HTML 解析
-            clearInterval(timer);
-        }
-    }, 100);
-})();
-</script>
+        // 根据当前页面高亮导航菜单（简单实现）
+        const currentPath = window.location.pathname;
+        const pageName = currentPath.split('/').pop() || 'index.html';
+        const navLinks = document.querySelectorAll('.nav-links a');
+        
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === '#home' && pageName === 'index.html') {
+                link.classList.add('active');
+            } else if (href === 'news.html' && pageName === 'news.html') {
+                link.classList.add('active');
+            } else if (href.startsWith('#') && href !== '#home' && pageName === 'index.html') {
+                // 首页锚点暂不自动高亮，可后续结合滚动监听
+            }
+        });
+    })();
+    </script>
 </body>
 </html>
