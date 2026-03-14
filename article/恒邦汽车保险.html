@@ -24,42 +24,83 @@
                 width: 96%;
             }
         }
-        /* 导航栏 */
-        .navbar {
-            background: #fff;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+
+        /* ===== 导航栏：蓝色渐变延伸版 ===== */
+        .header {
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(42, 82, 152, 0.95) 100%);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 999;
         }
-        .navbar .container {
+
+        .header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 80px;
+            height: 70px;
         }
+
         .logo a {
-            font-size: 24px;
-            font-weight: bold;
-            color: #1e3c72;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
             text-decoration: none;
+            letter-spacing: 1px;
         }
-        .nav ul {
+
+        .nav-links {
             display: flex;
             list-style: none;
+            gap: 2.2rem;
+            margin: 0;
+            padding: 0;
         }
-        .nav ul li {
-            margin-left: 30px;
+
+        .nav-links li {
+            margin: 0;
         }
-        .nav ul li a {
+
+        .nav-links a {
             text-decoration: none;
-            color: #333;
-            font-size: 16px;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 5px 0;
+            position: relative;
             transition: color 0.3s;
         }
-        .nav ul li a:hover {
-            color: #1e3c72;
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ffffff;
         }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffffff;
+            transition: width 0.3s ease-out;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
         /* 文章主体 */
         .article-wrapper {
             display: flex;
@@ -170,18 +211,18 @@
 </head>
 <body>
     <!-- 导航栏 -->
-    <header class="navbar">
+    <header class="header">
         <div class="container">
             <div class="logo">
                 <a href="/">名营广告</a>
             </div>
             <nav class="nav">
-                <ul>
+                <ul class="nav-links">
                     <li><a href="/">首页</a></li>
                     <li><a href="/#about">关于我们</a></li>
-                    <li><a href="/#services">服务项目</a></li>
-                    <li><a href="/#cases">成功案例</a></li>
                     <li><a href="../news.html">新闻中心</a></li>
+                    <li><a href="/#services">服务项目</a></li>
+                    <li><a href="/#cases">业务范围</a></li>
                     <li><a href="/#contact">联系我们</a></li>
                 </ul>
             </nav>
@@ -211,14 +252,31 @@
                 </div>
             </div>
 
-            <!-- 右侧侧边栏（已删除“本文浏览量”模块） -->
+            <!-- 右侧侧边栏 -->
             <div class="article-sidebar">
+                <!-- 本文浏览量模块 -->
+                <div class="sidebar-section">
+                    <h3>本文浏览量</h3>
+                    <div style="font-size: 20px; font-weight: bold; color: #1e3c72; text-align: center;">
+                        <span id="busuanzi_value_page_pv"></span> 次
+                    </div>
+                </div>
+
                 <div class="sidebar-section">
                     <h3>更多推荐</h3>
                     <ul class="recommend-list">
-                        <li><a href="../news.html">返回新闻中心</a><div class="date">更多文章</div></li>
-                        <li><a href="太平洋保险.html" target="_blank" rel="noopener noreferrer">太平洋保险汽车保险</a><div class="date">2026-03-04</div></li>
-                        <li><a href="恒邦汽车保险.html" target="_blank" rel="noopener noreferrer">恒邦保险汽车保险</a><div class="date">2026-03-05</div></li>
+                        <li>
+                            <a href="../news.html">返回新闻中心</a>
+                            <div class="date">更多文章</div>
+                        </li>
+                        <li>
+                            <a href="太平洋保险.html" target="_blank" rel="noopener noreferrer">太平洋保险汽车保险</a>
+                            <div class="date">2026-03-04</div>
+                        </li>
+                        <li>
+                            <a href="恒邦汽车保险.html" target="_blank" rel="noopener noreferrer">恒邦保险汽车保险</a>
+                            <div class="date">2026-03-05</div>
+                        </li>
                     </ul>
                 </div>
                 <div class="sidebar-section">
@@ -232,11 +290,37 @@
         </div>
     </div>
 
+    <!-- 页脚 -->
     <footer class="footer">
         <div class="container">
             <p>© 2026 成都名营广告有限公司 版权所有</p>
         </div>
     </footer>
+
+    <!-- 不蒜子脚本 -->
     <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <!-- 文章页浏览量起点脚本（100000） -->
+    <script>
+    (function() {
+        var pageOffset = 100000; // 文章页起点100000
+        var pageDisplay = document.querySelectorAll('#busuanzi_value_page_pv');
+        
+        var timer = setInterval(function() {
+            var valueSpan = document.getElementById('busuanzi_value_page_pv');
+            if (valueSpan && valueSpan.innerText) {
+                var cleanNum = valueSpan.innerText.replace(/[^0-9]/g, '');
+                var bszNum = parseInt(cleanNum, 10) || 0;
+                var totalNum = bszNum + pageOffset;
+                
+                // 更新所有显示位置
+                document.querySelectorAll('#busuanzi_value_page_pv').forEach(function(el) {
+                    el.innerText = totalNum;
+                });
+                clearInterval(timer);
+            }
+        }, 100);
+    })();
+    </script>
 </body>
 </html>
