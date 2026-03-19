@@ -29,7 +29,7 @@
             }
         }
 
-        /* ===== 导航栏：深灰色简约版 ===== */
+        /* ===== 导航栏：深灰色简约版（已修正 rgba） ===== */
         .header {
             background: rgba(44, 62, 80, 0.92);
             backdrop-filter: blur(10px);
@@ -187,7 +187,7 @@
             }
         }
 
-        /* ===== 轮播大图（保持原样但色调微调）===== */
+        /* ===== 轮播大图 ===== */
         .banner {
             height: 600px;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/bg.jpg') center/cover no-repeat;
@@ -232,7 +232,7 @@
             transform: translateY(-3px);
         }
 
-        /* ===== 公司简介（改为上下布局）===== */
+        /* ===== 公司简介 ===== */
         .intro {
             padding: 80px 0;
             background: #fff;
@@ -304,7 +304,7 @@
             margin-top: 40px;
         }
 
-        /* ===== 服务项目（卡片式）===== */
+        /* ===== 服务项目 ===== */
         .services {
             padding: 80px 0;
             background: #f9fafb;
@@ -390,7 +390,7 @@
             font-size: 14px;
         }
 
-        /* ===== 画廊模块（原图片展示改为网格）===== */
+        /* ===== 画廊 ===== */
         .gallery {
             padding: 60px 0;
             background: #fff;
@@ -446,7 +446,7 @@
             opacity: 1;
         }
 
-        /* ===== 业务范围（带图标和数字）===== */
+        /* ===== 业务范围 ===== */
         .cases {
             padding: 80px 0;
             background: #f9fafb;
@@ -499,7 +499,7 @@
             margin-top: 10px;
         }
 
-        /* ===== 联系我们（微调）===== */
+        /* ===== 联系我们 ===== */
         .contact {
             padding: 80px 0;
             background: #fff;
@@ -691,7 +691,7 @@
         </div>
     </section>
 
-    <!-- 公司简介（上下布局 + 数据） -->
+    <!-- 公司简介 -->
     <section id="about" class="intro">
         <div class="container">
             <div class="intro-text">
@@ -767,7 +767,7 @@
         </div>
     </section>
 
-    <!-- 画廊（原图片展示改造） -->
+    <!-- 画廊 -->
     <section class="gallery">
         <div class="container">
             <h2>作品瞬间</h2>
@@ -800,7 +800,7 @@
         </div>
     </section>
 
-    <!-- 业务范围（带数字） -->
+    <!-- 业务范围 -->
     <section id="cases" class="cases">
         <div class="container">
             <h2 class="section-title" id="casesTitle">核心业务</h2>
@@ -860,7 +860,7 @@
         </div>
     </section>
 
-    <!-- 页脚 + 浏览量统计（起点15000） -->
+    <!-- 页脚 + 浏览量统计 -->
     <footer class="footer">
         <div class="container">
             <p id="copyright">© 2026 成都名营广告有限公司 版权所有</p>
@@ -879,7 +879,7 @@
     <!-- 自定义浏览量脚本（起点15000） -->
     <script>
     (function() {
-        var countOffset = 15000; // ⚠️ 起点保持不变
+        var countOffset = 15000;
         var displaySpan = document.getElementById('custom_pv_display');
         var valueSpan = document.getElementById('busuanzi_value_site_pv');
 
@@ -905,7 +905,7 @@
     }
     </script>
 
-    <!-- 中英文切换脚本（仅保留框架，内容可自行扩展） -->
+    <!-- 中英文切换脚本 -->
     <script>
     const zhLang = {
         'nav_home': '首页',
@@ -967,7 +967,7 @@
     function switchLang(lang) {
         currentLang = lang;
         const langData = lang === 'zh' ? zhLang : enLang;
-        // 更新导航
+        
         document.querySelectorAll('.nav-links a').forEach((el, i) => {
             if (i < 6) el.textContent = langData[['nav_home','nav_about','nav_news','nav_services','nav_cases','nav_contact'][i]];
         });
@@ -1008,7 +1008,7 @@
         document.getElementById('submitBtn').textContent = langData['submitBtn'];
         document.getElementById('copyright').textContent = langData['copyright'];
         document.getElementById('pvText').textContent = langData['pvText'];
-        // 更新语言按钮激活状态
+        
         document.querySelectorAll('.lang-link').forEach((link, idx) => {
             link.classList.toggle('active', (lang === 'zh' && idx === 0) || (lang === 'en' && idx === 1));
         });
