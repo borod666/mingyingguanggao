@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>太平洋保险汽车保险 - 名营广告</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        @media (max-width: 1200px) {
+            .container {
+                width: 96%;
+            }
+        }
+
+        /* ===== 导航栏：蓝色渐变延伸版 ===== */
+        .header {
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(42, 82, 152, 0.95) 100%);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo a {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 5px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ffffff;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffffff;
+            transition: width 0.3s ease-out;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* 文章主体 */
+        .article-wrapper {
+            display: flex;
+            gap: 40px;
+            padding: 40px 0;
+        }
+        .article-main {
+            flex: 2.5;
+        }
+        .article-sidebar {
+            flex: 1.2;
+        }
+        .article-title {
+            font-size: 32px;
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .article-meta {
+            background: #f5f7fa;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            color: #555;
+            border-left: 4px solid #1e3c72;
+        }
+        .article-meta span {
+            color: #1e3c72;
+            font-weight: 500;
+        }
+        .article-content {
+            font-size: 16px;
+            color: #444;
+        }
+        .article-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        .article-content h3 {
+            font-size: 20px;
+            color: #1e3c72;
+            margin: 30px 0 15px;
+        }
+        .sidebar-section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .sidebar-section h3 {
+            font-size: 18px;
+            color: #1e3c72;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #1e3c72;
+        }
+        .recommend-list {
+            list-style: none;
+        }
+        .recommend-list li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+        }
+        .recommend-list li:last-child {
+            border-bottom: none;
+        }
+        .recommend-list a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .recommend-list a:hover {
+            color: #1e3c72;
+        }
+        .recommend-list .date {
+            font-size: 12px;
+            color: #999;
+        }
+        .contact-info {
+            background: #eef2f6;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .contact-info p {
+            margin-bottom: 8px;
+        }
+        .contact-info i {
+            color: #1e3c72;
+            margin-right: 8px;
+        }
+        /* 页脚 */
+        .footer {
+            background: #1a2639;
+            color: #94a3b8;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+        .footer p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="/">名营广告</a>
+            </div>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/#about">关于我们</a></li>
+                    <li><a href="../news.html">新闻中心</a></li>
+                    <li><a href="/#services">服务项目</a></li>
+                    <li><a href="/#cases">业务范围</a></li>
+                    <li><a href="/#contact">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="article-wrapper">
+            <!-- 左侧文章主体 -->
+            <div class="article-main">
+                <h1 class="article-title">国任保险</h1>
+                <div class="article-meta">
+                    分类：<span>国任保险</span><br>
+                    来源：<span>名营广告</span> 发布时间：<span>2026-03-19</span> 
+                    浏览量：<span id="busuanzi_value_page_pv"></span>
+                </div>
+                <div class="article-content">
+                    <p>作为深圳市属国资控制的唯一财险公司，国任保险拥有一支高素质、专业化的管理团队，管理团队核心人物拥有中央部委、行业监管、保险主体等多元背景，熟悉宏观经济和保险发展规律，视野开阔、能力突出、素质全面，带领国任保险不断开创事业发展新局面。国任保险既有国有企业的体制优势，也有市场化的机制优势。2019年以来，在新领导班子带领下，国任保险全面推进深化改革、创新转型、价值发展经营业绩逆势而上、跨越发展。2021年，正式迈入财险主体“百亿俱乐部"。2024年，排名财险市场前15位，实现六年连续盈利。截至目前，累计为近6000万个人、企业、政府等客户提供服务，提供风险保障超过43万亿元，累计赔付400多亿元。近年来，国任保险先后完成注册地迁移至深圳、增资扩股、总部新职场建设、境外发债、发起成立知识产权金融协会等多项重大工作，获得保险行业首家国家高新技术企业资格认证，2022-2024年，连续三年入选中国服务业企业500强、广东企业500强榜单;被授予广东省五一劳动奖状、第24届“广东青年五四奖章”集体奖、深圳市五一劳动奖状和首届“深圳青年五四奖章”集体奖;2021-2024年，连续四年荣获深圳市金融创新奖;被评为"2021中国财产险发展潜力十佳保险公司”。国任保险始终秉持“佑护生活，纾困解忧”的企业使命，坚定不移地走具有国任特色的市场化、数字化、集团化高质量发展之路，强化战略引领，坚持文化治司、“挑战自我，追求卓越”，聚力打造极具价值与活力的科技型保险集团，为满足人民不断增长的保险保障需求、助力加快建设金融强国不懈奋</p>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="../images/HB.png" alt="恒邦保险宣传图" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    </div>
+                    
+            </div>
+
+            <!-- 右侧侧边栏 -->
+            <div class="article-sidebar">
+                <!-- 本文浏览量模块 -->
+                <div class="sidebar-section">
+                    <h3>本文浏览量</h3>
+                    <div style="font-size: 20px; font-weight: bold; color: #1e3c72; text-align: center;">
+                        <span id="busuanzi_value_page_pv"></span> 次
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>更多推荐</h3>
+                    <ul class="recommend-list">
+                        <li>
+                            <a href="../news.html">返回新闻中心</a>
+                            <div class="date">更多文章</div>
+                        </li>  <li>
+                            <a href="国任保险.html" target="_blank" rel="noopener noreferrer">国任保险</a>
+                            <div class="date">2026-03-04</div>
+                        </li>
+                      
+                        <li>
+                            <a href="恒邦汽车保险.html" target="_blank" rel="noopener noreferrer">恒邦保险汽车保险</a>
+                            <div class="date">2026-03-05</div>
+                        </li>
+  <li>
+                            <a href="太平洋保险.html" target="_blank" rel="noopener noreferrer">太平洋保险</a>
+                            <div class="date">2026-03-04</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar-section">
+                    <h3>联系我们</h3>
+                    <div class="contact-info">
+                        <p><i>📍</i> 成都市金牛区金沙路西巷40号</p>
+                        <p><i>⏰</i> 周一至周五 9:00-18:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 成都名营广告有限公司 版权所有</p>
+        </div>
+    </footer>
+
+    <!-- 不蒜子脚本 -->
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <!-- 文章页浏览量起点脚本（2000） -->
+    <script>
+    (function() {
+        var pageOffset = 120000; // 文章页起点100000
+        var pageDisplay = document.querySelectorAll('#busuanzi_value_page_pv');
+        
+        var timer = setInterval(function() {
+            var valueSpan = document.getElementById('busuanzi_value_page_pv');
+            if (valueSpan && valueSpan.innerText) {
+                var cleanNum = valueSpan.innerText.replace(/[^0-9]/g, '');
+                var bszNum = parseInt(cleanNum, 10) || 0;
+                var totalNum = bszNum + pageOffset;
+                
+                // 更新所有显示位置
+                document.querySelectorAll('#busuanzi_value_page_pv').forEach(function(el) {
+                    el.innerText = totalNum;
+                });
+                clearInterval(timer);
+            }
+        }, 100);
+    })();
+    </script>
+</body>
+</html>
