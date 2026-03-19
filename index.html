@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>成都名营广告 · 创意点亮品牌</title>
+    <!-- 网站图标（请将你的图标文件命名为 favicon.ico 并放入 images 文件夹） -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
         * {
             margin: 0;
@@ -152,38 +154,12 @@
             color: #d97706;
         }
 
-        /* 中英文切换 */
-        .lang-switch {
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.6);
-            white-space: nowrap;
-            margin-left: 20px;
-        }
-
-        .lang-link {
-            text-decoration: none;
-            color: rgba(255, 255, 255, 0.6);
-            padding: 0 3px;
-            transition: color 0.3s;
-            cursor: pointer;
-        }
-
-        .lang-link:hover,
-        .lang-link.active {
-            color: #d97706;
-            font-weight: 500;
-        }
-
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
             .menu-toggle {
                 display: flex;
-            }
-            .lang-switch {
-                margin-left: 0;
-                margin-right: 15px;
             }
         }
 
@@ -390,7 +366,7 @@
             font-size: 14px;
         }
 
-        /* ===== 案例展示（原画廊） ===== */
+        /* ===== 案例展示 ===== */
         .gallery {
             padding: 60px 0;
             background: #fff;
@@ -655,7 +631,7 @@
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
+    <!-- 导航栏（已移除中英文切换） -->
     <header class="header">
         <div class="container">
             <div class="logo">
@@ -671,16 +647,11 @@
                     <li><a href="#contact">联系我们</a></li>
                 </ul>
             </nav>
-            <div style="display: flex; align-items: center;">
-                <div class="lang-switch">
-                    <a href="#" class="lang-link active" onclick="switchLang('zh')">中文</a> |
-                    <a href="#" class="lang-link" onclick="switchLang('en')">EN</a>
-                </div>
-                <div class="menu-toggle" onclick="toggleMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+            <!-- 中英文切换按钮已移除 -->
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
         <div class="mobile-nav" id="mobileNav">
@@ -780,7 +751,7 @@
         </div>
     </section>
 
-    <!-- 案例展示（原作品瞬间） -->
+    <!-- 案例展示 -->
     <section class="gallery">
         <div class="container">
             <h2>案例展示</h2>
@@ -930,122 +901,34 @@
     }
     </script>
 
-    <!-- 中英文切换脚本（与之前相同，略） -->
+    <!-- 导航激活状态脚本 -->
     <script>
-    const zhLang = {
-        'nav_home': '首页',
-        'nav_about': '关于我们',
-        'nav_news': '新闻中心',
-        'nav_services': '服务项目',
-        'nav_cases': '业务范围',
-        'nav_contact': '联系我们',
-        'title': '成都名营广告有限公司',
-        'subtitle': '创意 · 策略 · 执行 —— 让品牌焕发新生',
-        'contactBtn': '立即咨询',
-        'aboutTitle': '关于名营',
-        'aboutText1': '成都名营广告有限公司成立于2019年，是一家专注于品牌策划、创意设计、影视制作、数字营销的综合性广告公司。我们拥有一支经验丰富的创意团队和执行团队，致力于为客户提供从策略到落地的全方位广告服务。',
-        'aboutText2': '多年来，我们服务了上百家知名企业，涵盖快消、科技、文旅、教育等多个领域。我们坚信，每一个品牌都值得被用心对待，每一次传播都应充满创意。',
-        'servicesTitle': '我们的服务',
-        'servicesDesc': '从创意到落地，一站式品牌解决方案',
-        'service1': '品牌策划',
-        'service1Desc': '品牌定位、核心价值提炼、品牌故事构建、视觉识别系统',
-        'service2': '创意设计',
-        'service2Desc': 'LOGO设计、VI系统、包装设计、宣传物料、UI界面设计',
-        'service3': '影视制作',
-        'service3Desc': '企业宣传片、TVC广告、短视频内容、产品视频拍摄',
-        'service4': '数字营销',
-        'service4Desc': '社交媒体运营、搜索引擎优化、信息流广告、数据分析',
-        'service5': '营销策划',
-        'service5Desc': '活动策划、媒介投放、KOL合作、整合营销传播',
-        'service6': '公关活动',
-        'service6Desc': '新品发布会、品牌快闪、会展策划、线下体验活动',
-        'service7': '市场调研',
-        'service7Desc': '消费者洞察、竞品分析、市场趋势研究、策略咨询',
-        'service8': '创意孵化',
-        'service8Desc': '新品牌从0到1构建、产品概念创意、商业模式设计',
-        'casesTitle': '核心业务',
-        'casesDesc': '专注领域 · 数据见证实力',
-        'case1': '科技品牌全案',
-        'case1Desc': '从定位到传播，助力科技企业领跑市场',
-        'case2': '文旅整合营销',
-        'case2Desc': '短视频+社交媒体，景区游客量提升200%',
-        'case3': '快消品视觉升级',
-        'case3Desc': '包装设计焕新，销量同比增长150%',
-        'contactTitle': '联系我们',
-        'contactDesc': '期待与您携手，共创品牌未来',
-        'companyName': '成都名营广告有限公司',
-        'address': '地址：四川省成都市金牛区金沙路西巷40号',
-        'workTime': '工作时间：周一至周五 9:00-18:00',
-        'namePlaceholder': '您的姓名',
-        'emailPlaceholder': '您的邮箱',
-        'phonePlaceholder': '联系电话',
-        'messagePlaceholder': '留言内容',
-        'submitBtn': '提交留言',
-        'copyright': '© 2026 成都名营广告有限公司 版权所有',
-        'pvText': '本站总浏览量：'
-    };
-
-    const enLang = { /* 英文翻译省略，可自行添加 */ };
-
-    let currentLang = 'zh';
-
-    function switchLang(lang) {
-        currentLang = lang;
-        const langData = lang === 'zh' ? zhLang : enLang;
+    (function() {
+        const currentPath = window.location.pathname;
+        const pageName = currentPath.split('/').pop() || 'index.html';
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const mobileLinks = document.querySelectorAll('.mobile-nav a');
         
-        document.querySelectorAll('.nav-links a').forEach((el, i) => {
-            if (i < 6) el.textContent = langData[['nav_home','nav_about','nav_news','nav_services','nav_cases','nav_contact'][i]];
-        });
-        document.querySelectorAll('.mobile-nav a').forEach((el, i) => {
-            if (i < 6) el.textContent = langData[['nav_home','nav_about','nav_news','nav_services','nav_cases','nav_contact'][i]];
-        });
-        document.getElementById('title').textContent = langData['title'];
-        document.getElementById('subtitle').textContent = langData['subtitle'];
-        document.getElementById('contactBtn').textContent = langData['contactBtn'];
-        document.getElementById('aboutTitle').textContent = langData['aboutTitle'];
-        document.getElementById('aboutText1').textContent = langData['aboutText1'];
-        document.getElementById('aboutText2').textContent = langData['aboutText2'];
-        document.getElementById('servicesTitle').textContent = langData['servicesTitle'];
-        document.getElementById('servicesDesc').textContent = langData['servicesDesc'];
-        for (let i = 1; i <= 8; i++) {
-            if (document.getElementById('service' + i)) {
-                document.getElementById('service' + i).textContent = langData['service' + i];
-                document.getElementById('service' + i + 'Desc').textContent = langData['service' + i + 'Desc'];
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (href === 'index.html' && pageName === 'index.html') {
+                link.classList.add('active');
+            } else if (href === 'news.html' && pageName === 'news.html') {
+                link.classList.add('active');
             }
-        }
-        document.getElementById('casesTitle').textContent = langData['casesTitle'];
-        document.getElementById('casesDesc').textContent = langData['casesDesc'];
-        document.getElementById('case1').textContent = langData['case1'];
-        document.getElementById('case1Desc').textContent = langData['case1Desc'];
-        document.getElementById('case2').textContent = langData['case2'];
-        document.getElementById('case2Desc').textContent = langData['case2Desc'];
-        document.getElementById('case3').textContent = langData['case3'];
-        document.getElementById('case3Desc').textContent = langData['case3Desc'];
-        document.getElementById('contactTitle').textContent = langData['contactTitle'];
-        document.getElementById('contactDesc').textContent = langData['contactDesc'];
-        document.getElementById('companyName').textContent = langData['companyName'];
-        document.getElementById('address').textContent = langData['address'];
-        document.getElementById('workTime').textContent = langData['workTime'];
-        document.getElementById('namePlaceholder').placeholder = langData['namePlaceholder'];
-        document.getElementById('emailPlaceholder').placeholder = langData['emailPlaceholder'];
-        document.getElementById('phonePlaceholder').placeholder = langData['phonePlaceholder'];
-        document.getElementById('messagePlaceholder').placeholder = langData['messagePlaceholder'];
-        document.getElementById('submitBtn').textContent = langData['submitBtn'];
-        document.getElementById('copyright').textContent = langData['copyright'];
-        document.getElementById('pvText').textContent = langData['pvText'];
-        
-        document.querySelectorAll('.lang-link').forEach((link, idx) => {
-            link.classList.toggle('active', (lang === 'zh' && idx === 0) || (lang === 'en' && idx === 1));
         });
-    }
 
-    document.querySelectorAll('.lang-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const lang = this.textContent.trim() === '中文' ? 'zh' : 'en';
-            switchLang(lang);
+        mobileLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (href === 'index.html' && pageName === 'index.html') {
+                link.classList.add('active');
+            } else if (href === 'news.html' && pageName === 'news.html') {
+                link.classList.add('active');
+            }
         });
-    });
+    })();
     </script>
 </body>
 </html>
