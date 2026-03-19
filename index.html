@@ -29,12 +29,12 @@
             }
         }
 
-        /* ===== 导航栏：深灰色简约版（已修正 rgba） ===== */
+        /* ===== 导航栏：深灰 + 橘棕点缀 ===== */
         .header {
-            background: rgba(44, 62, 80, 0.92);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(230, 126, 34, 0.2);
+            background: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(217, 119, 6, 0.2);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
@@ -55,7 +55,7 @@
             color: #ffffff;
             text-decoration: none;
             letter-spacing: 1px;
-            background: linear-gradient(135deg, #e67e22 0%, #f39c12 100%);
+            background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -80,7 +80,7 @@
 
         .nav-links a:hover,
         .nav-links a.active {
-            color: #e67e22;
+            color: #d97706;
         }
 
         .nav-links a::after {
@@ -90,7 +90,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: #e67e22;
+            background: #d97706;
             transition: width 0.3s ease-out;
         }
 
@@ -111,7 +111,7 @@
         .menu-toggle span {
             width: 25px;
             height: 3px;
-            background: #e67e22;
+            background: #d97706;
             margin: 3px 0;
             transition: 0.3s;
             border-radius: 2px;
@@ -126,7 +126,7 @@
             background: #2c3e50;
             padding: 20px 0;
             z-index: 998;
-            border-top: 1px solid rgba(230, 126, 34, 0.3);
+            border-top: 1px solid rgba(217, 119, 6, 0.3);
         }
 
         .mobile-nav ul {
@@ -148,8 +148,8 @@
 
         .mobile-nav a:hover,
         .mobile-nav a.active {
-            background: rgba(230, 126, 34, 0.2);
-            color: #e67e22;
+            background: rgba(217, 119, 6, 0.2);
+            color: #d97706;
         }
 
         /* 中英文切换 */
@@ -170,7 +170,7 @@
 
         .lang-link:hover,
         .lang-link.active {
-            color: #e67e22;
+            color: #d97706;
             font-weight: 500;
         }
 
@@ -217,18 +217,18 @@
 
         .btn {
             display: inline-block;
-            background: #e67e22;
+            background: #d97706;
             color: #fff;
             padding: 12px 30px;
             text-decoration: none;
             border-radius: 50px;
             font-size: 18px;
             transition: background 0.3s, transform 0.3s;
-            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4);
+            box-shadow: 0 5px 15px rgba(217, 119, 6, 0.4);
         }
 
         .btn:hover {
-            background: #d35400;
+            background: #b45309;
             transform: translateY(-3px);
         }
 
@@ -261,7 +261,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 3px;
-            background: #e67e22;
+            background: #d97706;
         }
 
         .intro-text p {
@@ -286,7 +286,7 @@
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #e67e22;
+            color: #d97706;
         }
 
         .stat-label {
@@ -327,7 +327,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 3px;
-            background: #e67e22;
+            background: #d97706;
         }
 
         .section-desc {
@@ -356,8 +356,8 @@
 
         .service-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(230, 126, 34, 0.1);
-            border-color: #e67e22;
+            box-shadow: 0 20px 40px rgba(217, 119, 6, 0.1);
+            border-color: #d97706;
         }
 
         .service-icon {
@@ -370,12 +370,12 @@
             justify-content: center;
             margin: 0 auto 20px;
             font-size: 40px;
-            color: #e67e22;
+            color: #d97706;
             transition: 0.3s;
         }
 
         .service-item:hover .service-icon {
-            background: #e67e22;
+            background: #d97706;
             color: #fff;
         }
 
@@ -390,7 +390,7 @@
             font-size: 14px;
         }
 
-        /* ===== 画廊 ===== */
+        /* ===== 案例展示（原画廊） ===== */
         .gallery {
             padding: 60px 0;
             background: #fff;
@@ -398,52 +398,65 @@
 
         .gallery h2 {
             text-align: center;
-            font-size: 32px;
+            font-size: 36px;
             color: #2c3e50;
             margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .gallery h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #d97706;
         }
 
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 25px;
         }
 
         .gallery-item {
-            position: relative;
+            background: #f5f5f5;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(217, 119, 6, 0.1);
+        }
+
+        .gallery-item .image-container {
+            width: 100%;
             aspect-ratio: 4/3;
+            background: #eaeef2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
 
         .gallery-item .caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-            color: #fff;
-            padding: 20px 10px 10px;
+            padding: 15px;
             text-align: center;
-            font-size: 14px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .gallery-item:hover .caption {
-            opacity: 1;
+            background: #fff;
+            font-weight: 500;
+            color: #2c3e50;
+            border-top: 1px solid #eee;
         }
 
         /* ===== 业务范围 ===== */
@@ -470,13 +483,13 @@
 
         .case-item:hover {
             transform: translateY(-5px);
-            border-color: #e67e22;
+            border-color: #d97706;
         }
 
         .case-icon {
             font-size: 3rem;
             margin-bottom: 15px;
-            color: #e67e22;
+            color: #d97706;
         }
 
         .case-item h3 {
@@ -494,7 +507,7 @@
         .case-number {
             font-size: 2rem;
             font-weight: 700;
-            color: #e67e22;
+            color: #d97706;
             opacity: 0.5;
             margin-top: 10px;
         }
@@ -522,7 +535,7 @@
             font-size: 24px;
             color: #2c3e50;
             margin-bottom: 20px;
-            border-left: 4px solid #e67e22;
+            border-left: 4px solid #d97706;
             padding-left: 15px;
         }
 
@@ -533,7 +546,7 @@
 
         .contact-info i {
             margin-right: 10px;
-            color: #e67e22;
+            color: #d97706;
         }
 
         .contact-form {
@@ -556,7 +569,7 @@
 
         .form-group input:focus,
         .form-group textarea:focus {
-            border-color: #e67e22;
+            border-color: #d97706;
             outline: none;
         }
 
@@ -566,7 +579,7 @@
         }
 
         .submit-btn {
-            background: #e67e22;
+            background: #d97706;
             color: #fff;
             padding: 12px 30px;
             border: none;
@@ -578,7 +591,7 @@
         }
 
         .submit-btn:hover {
-            background: #d35400;
+            background: #b45309;
             transform: translateY(-2px);
         }
 
@@ -595,7 +608,7 @@
         }
 
         .footer a {
-            color: #e67e22;
+            color: #d97706;
             text-decoration: none;
         }
 
@@ -767,33 +780,45 @@
         </div>
     </section>
 
-    <!-- 画廊 -->
+    <!-- 案例展示（原作品瞬间） -->
     <section class="gallery">
         <div class="container">
-            <h2>作品瞬间</h2>
+            <h2>案例展示</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="images/zf.jpg" alt="作品1">
+                    <div class="image-container">
+                        <img src="images/zf.jpg" alt="案例1">
+                    </div>
                     <div class="caption">品牌全案策划</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/gr.jpg" alt="作品2">
+                    <div class="image-container">
+                        <img src="images/gr.jpg" alt="案例2">
+                    </div>
                     <div class="caption">创意设计</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/gr1.jpg" alt="作品3">
+                    <div class="image-container">
+                        <img src="images/gr1.jpg" alt="案例3">
+                    </div>
                     <div class="caption">影视制作</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/tpy.png" alt="作品4">
+                    <div class="image-container">
+                        <img src="images/tpy.png" alt="案例4">
+                    </div>
                     <div class="caption">数字营销</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/tpy2.jpg" alt="作品5">
+                    <div class="image-container">
+                        <img src="images/tpy2.jpg" alt="案例5">
+                    </div>
                     <div class="caption">公关活动</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/tpy3.jpg" alt="作品6">
+                    <div class="image-container">
+                        <img src="images/tpy3.jpg" alt="案例6">
+                    </div>
                     <div class="caption">创意孵化</div>
                 </div>
             </div>
@@ -867,7 +892,7 @@
             <div style="margin-top: 10px; font-size: 13px;">
                 <span id="pvText">本站总浏览量：</span>
                 <span id="busuanzi_value_site_pv" style="display: none;"></span>
-                <span id="custom_pv_display" style="font-weight: 600; color: #e67e22;">0</span>
+                <span id="custom_pv_display" style="font-weight: 600; color: #d97706;">0</span>
                 <span>次</span>
             </div>
         </div>
@@ -905,7 +930,7 @@
     }
     </script>
 
-    <!-- 中英文切换脚本 -->
+    <!-- 中英文切换脚本（与之前相同，略） -->
     <script>
     const zhLang = {
         'nav_home': '首页',
