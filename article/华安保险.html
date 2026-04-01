@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华安保险 - 名营广告</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        @media (max-width: 1200px) {
+            .container {
+                width: 96%;
+            }
+        }
+
+        /* ===== 导航栏：蓝色渐变延伸版 ===== */
+        .header {
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(42, 82, 152, 0.95) 100%);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo a {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 5px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ffffff;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffffff;
+            transition: width 0.3s ease-out;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* 文章主体 */
+        .article-wrapper {
+            display: flex;
+            gap: 40px;
+            padding: 40px 0;
+        }
+        .article-main {
+            flex: 2.5;
+        }
+        .article-sidebar {
+            flex: 1.2;
+        }
+        .article-title {
+            font-size: 32px;
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .article-meta {
+            background: #f5f7fa;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            color: #555;
+            border-left: 4px solid #1e3c72;
+        }
+        .article-meta span {
+            color: #1e3c72;
+            font-weight: 500;
+        }
+        .article-content {
+            font-size: 16px;
+            color: #444;
+        }
+        .article-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        .article-content h3 {
+            font-size: 20px;
+            color: #1e3c72;
+            margin: 30px 0 15px;
+        }
+        .sidebar-section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .sidebar-section h3 {
+            font-size: 18px;
+            color: #1e3c72;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #1e3c72;
+        }
+        .recommend-list {
+            list-style: none;
+        }
+        .recommend-list li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+        }
+        .recommend-list li:last-child {
+            border-bottom: none;
+        }
+        .recommend-list a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .recommend-list a:hover {
+            color: #1e3c72;
+        }
+        .recommend-list .date {
+            font-size: 12px;
+            color: #999;
+        }
+        .contact-info {
+            background: #eef2f6;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .contact-info p {
+            margin-bottom: 8px;
+        }
+        .contact-info i {
+            color: #1e3c72;
+            margin-right: 8px;
+        }
+        /* 页脚 */
+        .footer {
+            background: #1a2639;
+            color: #94a3b8;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+        .footer p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="/">名营广告</a>
+            </div>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/#about">关于我们</a></li>
+                    <li><a href="../news.html">新闻中心</a></li>
+                    <li><a href="/#services">服务项目</a></li>
+                    <li><a href="/#cases">业务范围</a></li>
+                    <li><a href="/#contact">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="article-wrapper">
+            <!-- 左侧文章主体 -->
+            <div class="article-main">
+                <h1 class="article-title">华安保险</h1>
+                <div class="article-meta">
+                    分类：<span>华安保险</span><br>
+                    来源：<span>名营广告</span> 发布时间：<span>2026-4-01</span> 
+                    浏览量：<span id="busuanzi_value_page_pv"></span>
+                </div>
+                <div class="article-content">
+                    <p>华安财产保险股份有限公司（以下简称“华安保险”）是经中国人民银行批准，于1996年10月18日正式创立的一家专业财产保险公司，总部设于深圳，注册资本21亿元人民币，主要经营各种财产险、责任险、信用保证险、农业险、意外伤害险、短期健康险和再保险业务。</p>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="../images/ha.jpg" alt="华安保险宣传图" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    </div>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <!-- 如果相对路径不生效，可以尝试使用完整的URL，例如： -->
+                        <!-- <img src="https://raw.githubusercontent.com/borod666/mingyingguanggao/main/images/hb3.png" alt="图片描述" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"> -->
+                        <img src="../images/hb3.png" alt="图片描述" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    </div>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="../images/hb4.png" alt="图片描述" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    </div>
+                    <h3>优质服务承诺</h3>
+                    <p>公司也始终关注客户需求，积极响应国家政策，多年来相继推出多款创新保险产品，如华安金龙收益联动型家庭财产保险、“食客安心”餐饮业综合保险、“禽流感无忧”疾病保险、国家助学贷款信用保险和就学贷款保证保险、非上市企业董监高责任保险等，目前在售保险产品3700余款。</p>
+                    <h3>2026年特色优惠</h3>
+                    <p>二十余载风雨兼程，华安保险通过优质服务、创新产品及经营模式，收获行业内外、社会大众的广泛认可，先后荣获“年度中国最佳客户服务管理奖”“企业社会责任贡献奖”“年度保险业数字化转型突破奖”等荣誉，并积极参与社会公益，累计捐款超8500万元。</p>
+                    <p style="font-weight: 500; color: #1e3c72;">
+
+全国统一服务及维权热线：95556
+
+全国车险投保热线：10100111
+</p>
+                </div>
+            </div>
+
+            <!-- 右侧侧边栏 -->
+            <div class="article-sidebar">
+                <!-- 本文浏览量模块 -->
+                <div class="sidebar-section">
+                    <h3>本文浏览量</h3>
+                    <div style="font-size: 20px; font-weight: bold; color: #1e3c72; text-align: center;">
+                        <span id="busuanzi_value_page_pv"></span> 次
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>更多推荐</h3>
+                    <ul class="recommend-list">
+                        <li>
+                            <a href="../news.html">返回新闻中心</a>
+                            <div class="date">更多文章</div>
+                        </li>
+                        <li>
+                            <a href="太平洋保险.html" target="_blank" rel="noopener noreferrer">太平洋保险汽车保险</a>
+                            <div class="date">2026-03-04</div>
+                        </li>
+                        <li>
+                            <a href="恒邦汽车保险.html" target="_blank" rel="noopener noreferrer">恒邦保险汽车保险</a>
+                            <div class="date">2026-03-05</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar-section">
+                    <h3>联系我们</h3>
+                    <div class="contact-info">
+                        <p><i>📍</i> 成都市金牛区金沙路西巷40号</p>
+                        <p><i>⏰</i> 周一至周五 9:00-18:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 成都名营广告有限公司 版权所有</p>
+        </div>
+    </footer>
+
+    <!-- 不蒜子脚本 -->
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <!-- 文章页浏览量起点脚本（120000） -->
+    <script>
+    (function() {
+        var pageOffset = 120000; // 文章页起点120000，请按需修改
+        var pageDisplay = document.querySelectorAll('#busuanzi_value_page_pv');
+        
+        var timer = setInterval(function() {
+            var valueSpan = document.getElementById('busuanzi_value_page_pv');
+            if (valueSpan && valueSpan.innerText) {
+                var cleanNum = valueSpan.innerText.replace(/[^0-9]/g, '');
+                var bszNum = parseInt(cleanNum, 10) || 0;
+                var totalNum = bszNum + pageOffset;
+                
+                // 更新所有显示位置
+                document.querySelectorAll('#busuanzi_value_page_pv').forEach(function(el) {
+                    el.innerText = totalNum;
+                });
+                clearInterval(timer);
+            }
+        }, 100);
+    })();
+    </script>
+</body>
+</html>
