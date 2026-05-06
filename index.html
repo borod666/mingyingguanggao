@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>博幻广告 · 创意无限</title>
+    <title>成都名营广告 · 引爆品牌声量</title>
+    <!-- 网站图标（请将你的图标文件命名为 favicon.ico 并放入 images 文件夹） -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
         * {
             margin: 0;
@@ -12,16 +14,15 @@
         }
 
         body {
-            font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            background-color: #0b0f1c;
-            color: #eef2ff;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
             line-height: 1.6;
+            color: #333;
+            background-color: #f8f5ff;
         }
 
         .container {
             width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
         }
 
         @media (max-width: 1200px) {
@@ -30,394 +31,462 @@
             }
         }
 
-        /* ----- 导航栏（深色毛玻璃）----- */
-        .navbar {
+        /* ===== 导航栏：深紫 + 金色点缀 ===== */
+        .header {
+            background: #4a148c; /* 深紫 */
+            border-bottom: 2px solid #ffd700;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
-            z-index: 1000;
-            background: rgba(11, 15, 28, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 230, 180, 0.2);
+            z-index: 999;
         }
 
-        .navbar .container {
+        .header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             height: 70px;
+            position: relative;
         }
 
         .logo a {
             font-size: 1.8rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #e0f2fe 0%, #00e6b4 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: #ffd700;
             text-decoration: none;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 0 #8e24aa;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
             list-style: none;
+            gap: 2.2rem;
+            margin: 0;
+            padding: 0;
         }
 
         .nav-links a {
-            color: #cdd9ff;
             text-decoration: none;
-            font-weight: 500;
+            color: #fff;
+            font-weight: 600;
             font-size: 1rem;
-            transition: color 0.3s;
-            position: relative;
+            padding: 8px 0;
+            transition: color 0.3s, border-bottom 0.3s;
+            border-bottom: 2px solid transparent;
         }
 
         .nav-links a:hover,
         .nav-links a.active {
-            color: #00e6b4;
+            color: #ffd700;
+            border-bottom-color: #ffd700;
         }
 
-        .nav-links a::after {
-            content: '';
+        /* 汉堡菜单 */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1000;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #ffd700;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-nav {
+            display: none;
             position: absolute;
-            bottom: -4px;
+            top: 70px;
             left: 0;
-            width: 0;
-            height: 2px;
-            background: #00e6b4;
-            transition: width 0.3s;
+            width: 100%;
+            background: #4a148c;
+            padding: 20px 0;
+            z-index: 998;
+            border-top: 1px solid #ffd700;
         }
 
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
+        .mobile-nav ul {
+            list-style: none;
+        }
+
+        .mobile-nav li {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .mobile-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: block;
+            padding: 10px;
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            background: #ffd700;
+            color: #4a148c;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+        }
+
+        /* ===== 轮播大图 ===== */
+        .banner {
+            height: 600px;
+            background: linear-gradient(rgba(74, 20, 140, 0.7), rgba(74, 20, 140, 0.7)), url('images/bg.jpg') center/cover no-repeat;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .banner-content {
             width: 100%;
         }
 
-        /* 移动端导航栏调整：让菜单可见并换行 */
-        @media (max-width: 768px) {
-            .navbar .container {
-                flex-direction: column;
-                height: auto;
-                padding: 12px 0;
-            }
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 1rem;
-                margin-top: 10px;
-            }
-            .nav-links a {
-                font-size: 0.9rem;
-            }
+        .banner h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            color: #ffd700;
         }
 
-        /* ----- Hero 区域 ----- */
-        .hero {
-            height: 85vh;
-            min-height: 600px;
-            background: radial-gradient(circle at 70% 30%, #14202e, #0b0f1c);
-            display: flex;
-            align-items: center;
+        .banner p {
+            font-size: 24px;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ffd700;
+            color: #4a148c;
+            padding: 14px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn:hover {
+            background: #ffb300;
+            transform: translateY(-3px);
+        }
+
+        /* ===== 公司简介 ===== */
+        .intro {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .intro-text {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .intro-text h2 {
+            font-size: 36px;
+            color: #4a148c;
+            margin-bottom: 20px;
             position: relative;
-            overflow: hidden;
+            display: inline-block;
+            padding-bottom: 15px;
         }
 
-        .hero::before {
+        .intro-text h2::after {
             content: '';
             position: absolute;
-            width: 150%;
-            height: 150%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" opacity="0.05"><path fill="none" stroke="%2300e6b4" stroke-width="1.5" d="M0 400 L800 400 M400 0 L400 800 M200 200 L600 600 M200 600 L600 200"/></svg>') repeat;
-            animation: rotateGrid 60s linear infinite;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #ffd700;
         }
 
-        @keyframes rotateGrid {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        .intro-text p {
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.8;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #ffffff, #00e6b4);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            color: #b9c7e0;
-            margin-bottom: 2rem;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            background: #00e6b4;
-            color: #0b0f1c;
-            padding: 12px 32px;
-            border-radius: 40px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.3s;
-            box-shadow: 0 8px 20px rgba(0, 230, 180, 0.3);
-        }
-
-        .btn-primary:hover {
-            background: #00c29a;
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(0, 230, 180, 0.4);
-        }
-
-        .btn-outline {
-            display: inline-block;
-            background: transparent;
-            border: 2px solid #00e6b4;
-            color: #00e6b4;
-            padding: 10px 28px;
-            border-radius: 40px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .btn-outline:hover {
-            background: #00e6b4;
-            color: #0b0f1c;
-        }
-
-        /* ----- 通用段落样式 ----- */
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #8f9bb5;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            font-size: 1.1rem;
-        }
-
-        .section-title span {
-            background: linear-gradient(135deg, #ffffff, #00e6b4);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        /* ----- 关于我们（左右布局）----- */
-        .about-grid {
+        .intro-stats {
             display: flex;
-            gap: 4rem;
-            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 40px;
+            flex-wrap: wrap;
         }
 
-        .about-text {
-            flex: 1;
-        }
-
-        .about-text p {
-            margin-bottom: 1.2rem;
-            color: #cbd5e6;
-        }
-
-        .stats {
-            display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat {
+        .stat-item {
             text-align: center;
         }
 
         .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #00e6b4;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffd700;
+            text-shadow: 1px 1px 0 #4a148c;
         }
 
-        .about-img {
-            flex: 1;
-            background: linear-gradient(145deg, #1a2538, #0f172a);
-            border-radius: 32px;
-            padding: 2rem;
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        .intro-img {
+            width: 100%;
+            height: 400px;
+            background: url('images/gywm.jpg') center/cover no-repeat;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(74, 20, 140, 0.2);
+            margin-top: 40px;
+        }
+
+        /* ===== 服务项目 ===== */
+        .services {
+            padding: 80px 0;
+            background: #f8f5ff;
+        }
+
+        .section-title {
             text-align: center;
-            border: 1px solid rgba(0, 230, 180, 0.2);
-            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.5);
+            font-size: 36px;
+            color: #4a148c;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
         }
 
-        .about-img i {
-            font-size: 5rem;
-            color: #00e6b4;
-            margin-bottom: 1rem;
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #ffd700;
         }
 
-        /* ----- 服务卡片（网格）----- */
+        .section-desc {
+            text-align: center;
+            color: #7f8c8d;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            font-size: 1.1rem;
+        }
+
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
         }
 
-        .service-card {
-            background: #111827;
-            border-radius: 24px;
-            padding: 2rem 1.5rem;
-            transition: 0.3s;
-            border: 1px solid #1f2a3e;
+        .service-item {
             text-align: center;
+            padding: 40px 20px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(74, 20, 140, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
         }
 
-        .service-card:hover {
-            transform: translateY(-8px);
-            border-color: #00e6b4;
-            box-shadow: 0 20px 25px -12px rgba(0, 230, 180, 0.2);
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(74, 20, 140, 0.15);
+            border-color: #ffd700;
         }
 
         .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            width: 80px;
+            height: 80px;
+            background: #f3e5ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 40px;
+            color: #4a148c;
+            transition: 0.3s;
         }
 
-        .service-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-            color: #ffffff;
+        .service-item:hover .service-icon {
+            background: #ffd700;
+            color: #4a148c;
         }
 
-        .service-card p {
-            color: #9ca3af;
-            font-size: 0.9rem;
+        .service-item h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #4a148c;
         }
 
-        /* ----- 画廊 / 作品展示 ----- */
+        .service-item p {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        /* ===== 案例展示 ===== */
+        .gallery {
+            padding: 60px 0;
+            background: #fff;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            font-size: 36px;
+            color: #4a148c;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .gallery h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #ffd700;
+        }
+
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            gap: 25px;
         }
 
         .gallery-item {
-            background: #111827;
-            border-radius: 20px;
+            background: #f5f0ff;
+            border-radius: 12px;
             overflow: hidden;
-            transition: 0.3s;
-            border: 1px solid #1f2a3e;
+            box-shadow: 0 8px 20px rgba(74, 20, 140, 0.1);
+            transition: transform 0.3s;
         }
 
         .gallery-item:hover {
-            transform: scale(1.02);
-            border-color: #00e6b4;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(74, 20, 140, 0.2);
         }
 
-        .gallery-img {
+        .gallery-item .image-container {
             width: 100%;
             aspect-ratio: 4/3;
-            background-size: cover;
-            background-position: center;
-            background-color: #1e293b;
-        }
-
-        .gallery-caption {
-            padding: 1rem;
-            text-align: center;
-            color: #cbd5e6;
-        }
-
-        /* ----- 合作品牌（双卡片）----- */
-        .partner-grid {
+            background: #eaeef2;
             display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
+            align-items: center;
             justify-content: center;
         }
 
-        .partner-card {
-            background: #111827;
-            border-radius: 24px;
-            padding: 1.5rem;
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-            flex: 1;
-            min-width: 260px;
-            border: 1px solid #1f2a3e;
-        }
-
-        .partner-logo {
-            width: 80px;
-            text-align: center;
-        }
-
-        .partner-logo img {
+        .gallery-item img {
             max-width: 100%;
-            height: auto;
+            max-height: 100%;
+            object-fit: contain;
         }
 
-        .partner-text p {
-            color: #cbd5e6;
-            font-size: 0.9rem;
+        .gallery-item .caption {
+            padding: 15px;
+            text-align: center;
+            background: #fff;
+            font-weight: 500;
+            color: #4a148c;
+            border-top: 1px solid #ffd700;
         }
 
-        /* ----- 业务范围（带数字）----- */
-        .business-grid {
+        /* ===== 业务范围 ===== */
+        .cases {
+            padding: 80px 0;
+            background: #f8f5ff;
+        }
+
+        .case-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            gap: 30px;
         }
 
-        .business-item {
-            background: #111827;
+        .case-item {
+            background: #fff;
             border-radius: 20px;
-            padding: 2rem;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(74, 20, 140, 0.05);
             text-align: center;
-            border: 1px solid #1f2a3e;
+            border: 1px solid #eee;
             transition: 0.3s;
         }
 
-        .business-item:hover {
-            border-color: #00e6b4;
+        .case-item:hover {
+            transform: translateY(-5px);
+            border-color: #ffd700;
         }
 
-        .business-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .case-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ffd700;
         }
 
-        .business-number {
-            font-size: 1.8rem;
+        .case-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #4a148c;
+        }
+
+        .case-item p {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .case-number {
+            font-size: 2rem;
             font-weight: 700;
-            color: #00e6b4;
-            margin-top: 1rem;
+            color: #ffd700;
+            opacity: 0.5;
+            margin-top: 10px;
         }
 
-        /* ----- 联系我们（双栏）----- */
-        .contact-flex {
+        /* ===== 联系我们 ===== */
+        .contact {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .contact-wrapper {
             display: flex;
-            gap: 3rem;
-            background: #111827;
-            border-radius: 32px;
-            padding: 2.5rem;
-            border: 1px solid #1f2a3e;
+            gap: 50px;
+            background: #f8f5ff;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(74, 20, 140, 0.1);
         }
 
         .contact-info {
@@ -425,17 +494,21 @@
         }
 
         .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: #ffffff;
+            font-size: 24px;
+            color: #4a148c;
+            margin-bottom: 20px;
+            border-left: 4px solid #ffd700;
+            padding-left: 15px;
         }
 
         .contact-info p {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            color: #cbd5e6;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: #ffd700;
         }
 
         .contact-form {
@@ -443,216 +516,343 @@
         }
 
         .form-group {
-            margin-bottom: 1.2rem;
+            margin-bottom: 20px;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 12px 18px;
-            background: #0f172a;
-            border: 1px solid #1f2a3e;
-            border-radius: 12px;
-            color: #ffffff;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
             font-family: inherit;
-            transition: 0.3s;
+            transition: border 0.3s;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
+            border-color: #ffd700;
             outline: none;
-            border-color: #00e6b4;
         }
 
-        .btn-submit {
-            background: #00e6b4;
-            color: #0b0f1c;
-            font-weight: 600;
-            padding: 12px 24px;
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #ffd700;
+            color: #4a148c;
+            padding: 12px 30px;
             border: none;
-            border-radius: 40px;
+            border-radius: 50px;
             cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
             transition: 0.3s;
             width: 100%;
         }
 
-        .btn-submit:hover {
-            background: #00c29a;
+        .submit-btn:hover {
+            background: #ffb300;
+            transform: translateY(-2px);
         }
 
-        /* ----- 页脚 ----- */
+        /* ===== 页脚 ===== */
         .footer {
-            background: #06090f;
+            background: #4a148c;
+            color: #ffd700;
+            padding: 40px 0;
             text-align: center;
-            padding: 2rem;
-            border-top: 1px solid #1f2a3e;
-            color: #6c7a91;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        .footer a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
         }
 
         /* 响应式 */
         @media (max-width: 992px) {
-            .about-grid {
-                flex-direction: column;
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .business-grid {
+            .case-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .contact-flex {
+            .contact-wrapper {
                 flex-direction: column;
             }
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .banner h1 {
+                font-size: 32px;
+            }
+            .banner p {
+                font-size: 18px;
+            }
+            .service-grid {
+                grid-template-columns: 1fr;
             }
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
-            .business-grid {
+            .case-grid {
                 grid-template-columns: 1fr;
+            }
+            .intro-stats {
+                gap: 30px;
+            }
+            .stat-number {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
+    <!-- 导航栏 -->
+    <header class="header">
         <div class="container">
-            <div class="logo"><a href="#">博幻广告</a></div>
-            <ul class="nav-links">
-                <li><a href="#" class="active">首页</a></li>
-                <li><a href="#about">关于我们</a></li>
-                <li><a href="#services">服务项目</a></li>
-                <li><a href="#">新闻中心</a></li>   <!-- 新闻中心链接 -->
-                <li><a href="#business">业务范围</a></li>
-                <li><a href="#contact">联系我们</a></li>
+            <div class="logo">
+                <a href="index.html">名营广告</a>
+            </div>
+            <nav class="nav">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="active">首页</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="news.html">新闻中心</a></li>
+                    <li><a href="#services">服务项目</a></li>
+                    <li><a href="#cases">业务范围</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="index.html" onclick="closeMenu()">首页</a></li>
+                <li><a href="#about" onclick="closeMenu()">关于我们</a></li>
+                <li><a href="news.html" onclick="closeMenu()">新闻中心</a></li>
+                <li><a href="#services" onclick="closeMenu()">服务项目</a></li>
+                <li><a href="#cases" onclick="closeMenu()">业务范围</a></li>
+                <li><a href="#contact" onclick="closeMenu()">联系我们</a></li>
             </ul>
         </div>
-    </nav>
+    </header>
 
-    <section class="hero">
-        <div class="container hero-content">
-            <h1>博幻广告 · 创意无限</h1>
-            <p>品牌策略 · 创意视觉 · 数字营销 · 全案服务</p>
-            <a href="#contact" class="btn-primary">开启合作</a>
+    <!-- 轮播大图（文案已更新） -->
+    <section id="home" class="banner">
+        <div class="banner-content">
+            <h1>成都名营广告有限公司</h1>
+            <p>引爆品牌声量 · 重塑市场格局</p>
+            <a href="#contact" class="btn">免费咨询</a>
         </div>
     </section>
 
-    <section id="about">
-        <div class="container about-grid">
-            <div class="about-text">
-                <h2 class="section-title" style="text-align: left; margin-bottom: 1rem;">关于<span>博幻</span></h2>
-                <p>成都博幻广告有限公司成立于2019年，是一家专注于品牌全案策划、创意设计、影视制作与数字营销的综合性广告机构。我们拒绝平庸，用前瞻视角为品牌注入生命力。</p>
-                <p>团队核心成员来自一线4A公司，服务过上百家知名企业，涵盖科技、文旅、快消、教育等领域。我们相信，广告不止于传播，更是品牌与用户之间的深度共鸣。</p>
-                <div class="stats">
-                    <div class="stat"><div class="stat-number">200+</div><div>合作客户</div></div>
-                    <div class="stat"><div class="stat-number">8年</div><div>行业深耕</div></div>
-                    <div class="stat"><div class="stat-number">98%</div><div>客户续约率</div></div>
-                </div>
-            </div>
-            <div class="about-img">
-                <i>🎨</i>
-                <p style="margin-top: 1rem;">创意 · 策略 · 执行</p>
-                <p style="font-size: 0.9rem; color:#8f9bb5;">让品牌价值持续发光</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" style="background: #0f131f;">
+    <!-- 公司简介 -->
+    <section id="about" class="intro">
         <div class="container">
-            <h2 class="section-title">我们的<span>服务</span></h2>
-            <p class="section-subtitle">从策略到创意，一站式品牌增长解决方案</p>
-            <div class="service-grid">
-                <div class="service-card"><div class="service-icon">🎯</div><h3>品牌策划</h3><p>定位 / 故事 / 视觉识别系统</p></div>
-                <div class="service-card"><div class="service-icon">✏️</div><h3>创意设计</h3><p>LOGO / VI / 包装 / 宣传物料</p></div>
-                <div class="service-card"><div class="service-icon">🎬</div><h3>影视制作</h3><p>宣传片 / TVC / 短视频</p></div>
-                <div class="service-card"><div class="service-icon">📱</div><h3>数字营销</h3><p>社媒运营 / 信息流 / 数据分析</p></div>
-                <div class="service-card"><div class="service-icon">📊</div><h3>营销策划</h3><p>活动 / 媒介 / KOL整合</p></div>
-                <div class="service-card"><div class="service-icon">🏆</div><h3>公关活动</h3><p>发布会 / 快闪 / 会展</p></div>
-                <div class="service-card"><div class="service-icon">📈</div><h3>市场调研</h3><p>消费者洞察 / 竞品分析</p></div>
-                <div class="service-card"><div class="service-icon">💡</div><h3>创意孵化</h3><p>新品牌0到1构建</p></div>
+            <div class="intro-text">
+                <h2>关于名营</h2>
+                <p>成都名营广告有限公司成立于2019年，是一家专注于品牌策划、创意设计、影视制作、数字营销的综合性广告公司。我们拥有一支经验丰富的创意团队和执行团队，致力于为客户提供从策略到落地的全方位广告服务。</p>
+                <p>多年来，我们服务了上百家知名企业，涵盖快消、科技、文旅、教育等多个领域。我们坚信，每一个品牌都值得被用心对待，每一次传播都应充满创意。</p>
             </div>
-        </div>
-    </section>
-
-    <!-- 画廊 / 作品展示 -->
-    <section class="container" style="padding-top: 0;">
-        <h2 class="section-title">作品<span>瞬间</span></h2>
-        <p class="section-subtitle">用案例说话，见证品牌成长</p>
-        <div class="gallery-grid">
-            <div class="gallery-item"><div class="gallery-img" style="background-image: url('images/zf.jpg');"></div><div class="gallery-caption">品牌全案策划</div></div>
-            <div class="gallery-item"><div class="gallery-img" style="background-image: url('images/gr.jpg');"></div><div class="gallery-caption">创意设计</div></div>
-            <div class="gallery-item"><div class="gallery-img" style="background-image: url('images/gr1.jpg');"></div><div class="gallery-caption">影视制作</div></div>
-            <div class="gallery-item"><div class="gallery-img" style="background-image: url('images/tpy.png');"></div><div class="gallery-caption">数字营销</div></div>
-            <div class="gallery-item"><div class="gallery-img" style="background-image: url('images/tpy2.jpg');"></div><div class="gallery-caption">公关活动</div></div>
-            <div class="gallery-item"><div class="gallery-img" style="background-image: url('images/tpy3.jpg');"></div><div class="gallery-caption">创意孵化</div></div>
-        </div>
-    </section>
-
-    <!-- 合作伙伴 -->
-    <section style="background: #0f131f;">
-        <div class="container partner-grid">
-            <div class="partner-card">
-                <div class="partner-logo"><img src="images/dhlogo.png" alt="鼎和保险" style="max-width:70px;"></div>
-                <div class="partner-text">
-                    <p>鼎和财产保险股份有限公司成立于2008年，注册资本46.43亿元，南方电网控股子公司，全国15家省级机构，180家三级机构。</p>
+            <div class="intro-stats">
+                <div class="stat-item">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">服务客户</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">8年</div>
+                    <div class="stat-label">行业深耕</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">客户续约率</div>
                 </div>
             </div>
-            <div class="partner-card">
-                <div class="partner-logo"><img src="images/ct.jpg" alt="诚泰保险" style="max-width:70px;"></div>
-                <div class="partner-text">
-                    <p>诚泰财产保险股份有限公司，注册资本59.7亿元，唯一总部在云南的全国性财险公司，经营1000余款保险产品。</p>
+            <div class="intro-img" style="background-image: url('images/gywm.jpg');"></div>
+        </div>
+    </section>
+
+    <!-- 服务项目 -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">我们的服务</h2>
+            <p class="section-desc">从创意到落地，一站式品牌解决方案</p>
+            <div class="service-grid">
+                <div class="service-item">
+                    <div class="service-icon">🎯</div>
+                    <h3>珠峰</h3>
+                    <p>品牌定位、核心价值提炼、品牌故事构建、视觉识别系统</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">✏️</div>
+                    <h3>国任保险</h3>
+                    <p>LOGO设计、VI系统、包装设计、宣传物料、UI界面设计</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">🎬</div>
+                    <h3>太平洋保险</h3>
+                    <p>企业宣传片、TVC广告、短视频内容、产品视频拍摄</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">📱</div>
+                    <h3>数字营销</h3>
+                    <p>社交媒体运营、搜索引擎优化、信息流广告、数据分析</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">📊</div>
+                    <h3>营销策划</h3>
+                    <p>活动策划、媒介投放、KOL合作、整合营销传播</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">🏆</div>
+                    <h3>公关活动</h3>
+                    <p>新品发布会、品牌快闪、会展策划、线下体验活动</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">📈</div>
+                    <h3>市场调研</h3>
+                    <p>消费者洞察、竞品分析、市场趋势研究、策略咨询</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">💡</div>
+                    <h3>创意孵化</h3>
+                    <p>新品牌从0到1构建、产品概念创意、商业模式设计</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 案例展示 -->
+    <section class="gallery">
+        <div class="container">
+            <h2>案例展示</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img src="images/hb3.png" alt="案例1">
+                    </div>
+                    <div class="caption">珠峰保险</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img src="images/gr.jpg" alt="案例2">
+                    </div>
+                    <div class="caption">国任保险</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img src="images/hb4.png" alt="案例3">
+                    </div>
+                    <div class="caption">影视制作</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img src="images/tpy.png" alt="案例4">
+                    </div>
+                    <div class="caption">太平洋保险</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img src="images/tpy2.jpg" alt="案例5">
+                    </div>
+                    <div class="caption">公关活动</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img src="images/tpy3.jpg" alt="案例6">
+                    </div>
+                    <div class="caption">创意孵化</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 业务范围 -->
-    <section id="business">
+    <section id="cases" class="cases">
         <div class="container">
-            <h2 class="section-title">核心<span>业务</span></h2>
-            <p class="section-subtitle">专注领域 · 数据见证实力</p>
-            <div class="business-grid">
-                <div class="business-item"><div class="business-icon">🚀</div><h3>科技品牌全案</h3><p>从定位到传播，助力科技企业领跑市场</p><div class="business-number">80+</div></div>
-                <div class="business-item"><div class="business-icon">🏞️</div><h3>文旅整合营销</h3><p>短视频+社交媒体，景区游客量提升200%</p><div class="business-number">30+</div></div>
-                <div class="business-item"><div class="business-icon">🍫</div><h3>快消品视觉升级</h3><p>包装设计焕新，销量同比增长150%</p><div class="business-number">50+</div></div>
+            <h2 class="section-title">核心业务</h2>
+            <p class="section-desc">专注领域 · 数据见证实力</p>
+            <div class="case-grid">
+                <div class="case-item">
+                    <div class="case-icon">🚀</div>
+                    <h3>科技品牌全案</h3>
+                    <p>从定位到传播，助力科技企业领跑市场</p>
+                    <div class="case-number">80+</div>
+                </div>
+                <div class="case-item">
+                    <div class="case-icon">🏞️</div>
+                    <h3>文旅整合营销</h3>
+                    <p>短视频+社交媒体，景区游客量提升200%</p>
+                    <div class="case-number">30+</div>
+                </div>
+                <div class="case-item">
+                    <div class="case-icon">🍫</div>
+                    <h3>快消品视觉升级</h3>
+                    <p>包装设计焕新，销量同比增长150%</p>
+                    <div class="case-number">50+</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- 联系我们 -->
-    <section id="contact">
-        <div class="container contact-flex">
-            <div class="contact-info">
-                <h3>博幻广告</h3>
-                <p><span>📍</span> 四川省成都市金牛区西体路1号</p>
-                <p><span>📞</span> 028-8888 1234</p>
-                <p><span>✉️</span> hello@bohuan.com</p>
-                <p><span>⏰</span> 周一至周五 9:00-18:00</p>
-            </div>
-            <div class="contact-form">
-                <form>
-                    <div class="form-group"><input type="text" placeholder="您的姓名"></div>
-                    <div class="form-group"><input type="email" placeholder="您的邮箱"></div>
-                    <div class="form-group"><input type="tel" placeholder="联系电话"></div>
-                    <div class="form-group"><textarea rows="4" placeholder="留言内容"></textarea></div>
-                    <button type="submit" class="btn-submit">提交留言</button>
-                </form>
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">联系我们</h2>
+            <p class="section-desc">期待与您携手，共创品牌未来</p>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>成都名营广告有限公司</h3>
+                    <p><i>📍</i> 地址：四川省成都市金牛区金沙路西巷40号</p>
+                    <p><i>⏰</i> 工作时间：周一至周五 9:00-18:00</p>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="您的姓名" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="您的邮箱" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="联系电话" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="留言内容" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">提交留言</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 页脚 -->
+    <!-- 页脚 + 浏览量统计（起点15000） -->
     <footer class="footer">
         <div class="container">
-            <p>© 2026 成都博幻广告有限公司 版权所有</p>
+            <p>© 2026 成都名营广告有限公司 版权所有</p>
             <div style="margin-top: 10px; font-size: 13px;">
                 <span>本站总浏览量：</span>
                 <span id="busuanzi_value_site_pv" style="display: none;"></span>
-                <span id="custom_pv_display" style="font-weight: 600; color: #00e6b4;">0</span>
+                <span id="custom_pv_display" style="font-weight: 600; color: #ffd700;">0</span>
                 <span>次</span>
             </div>
         </div>
@@ -660,9 +860,11 @@
 
     <!-- 不蒜子脚本 -->
     <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <!-- 自定义浏览量脚本（起点15000） -->
     <script>
     (function() {
-        var countOffset = 15200;
+        var countOffset = 15000;
         var displaySpan = document.getElementById('custom_pv_display');
         var valueSpan = document.getElementById('busuanzi_value_site_pv');
 
@@ -674,6 +876,47 @@
                 clearInterval(timer);
             }
         }, 100);
+    })();
+    </script>
+
+    <!-- 汉堡菜单脚本 -->
+    <script>
+    function toggleMenu() {
+        var menu = document.getElementById('mobileNav');
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+    function closeMenu() {
+        document.getElementById('mobileNav').style.display = 'none';
+    }
+    </script>
+
+    <!-- 导航激活状态脚本 -->
+    <script>
+    (function() {
+        const currentPath = window.location.pathname;
+        const pageName = currentPath.split('/').pop() || 'index.html';
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const mobileLinks = document.querySelectorAll('.mobile-nav a');
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (href === 'index.html' && pageName === 'index.html') {
+                link.classList.add('active');
+            } else if (href === 'news.html' && pageName === 'news.html') {
+                link.classList.add('active');
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (href === 'index.html' && pageName === 'index.html') {
+                link.classList.add('active');
+            } else if (href === 'news.html' && pageName === 'news.html') {
+                link.classList.add('active');
+            }
+        });
     })();
     </script>
 </body>
