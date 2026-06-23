@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>成都名营广告 · 引爆品牌声量</title>
+    <!-- 性能优化：DNS预解析 + 关键图片预加载 -->
+    <link rel="preconnect" href="https://busuanzi.ibruce.info">
+    <link rel="preload" as="image" href="images/bg.webp" type="image/webp">
+    <link rel="preload" as="image" href="images/gywm.webp" type="image/webp">
     <!-- 网站图标（请将你的图标文件命名为 favicon.ico 并放入 images 文件夹） -->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
@@ -147,7 +151,7 @@
         /* ===== 轮播大图 ===== */
         .banner {
             height: 600px;
-            background: linear-gradient(rgba(74, 20, 140, 0.7), rgba(74, 20, 140, 0.7)), url('images/bg.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(74, 20, 140, 0.7), rgba(74, 20, 140, 0.7)), url('images/bg.webp') center/cover no-repeat;
             color: #fff;
             display: flex;
             align-items: center;
@@ -260,7 +264,7 @@
         .intro-img {
             width: 100%;
             height: 400px;
-            background: url('images/gywm.jpg') center/cover no-repeat;
+            background: url('images/gywm.webp') center/cover no-repeat;
             border-radius: 20px;
             box-shadow: 0 15px 30px rgba(74, 20, 140, 0.2);
             margin-top: 40px;
@@ -686,7 +690,7 @@
                     <div class="stat-label">客户续约率</div>
                 </div>
             </div>
-            <div class="intro-img" style="background-image: url('images/gywm.jpg');"></div>
+            <div class="intro-img" style="background-image: url('images/gywm.webp');"></div>
         </div>
     </section>
 
@@ -747,37 +751,37 @@
             <div class="gallery-grid">
                 <div class="gallery-item">
                     <div class="image-container">
-                        <img src="images/hb3.png" alt="案例1">
+                        <img src="images/hb3.webp" alt="案例1" loading="lazy" width="410" height="600">
                     </div>
                     <div class="caption">珠峰保险</div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-container">
-                        <img src="images/gr.jpg" alt="案例2">
+                        <img src="images/gr.webp" alt="案例2" loading="lazy" width="1920" height="600">
                     </div>
                     <div class="caption">国任保险</div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-container">
-                        <img src="images/hb4.png" alt="案例3">
+                        <img src="images/hb4.webp" alt="案例3" loading="lazy" width="390" height="600">
                     </div>
                     <div class="caption">影视制作</div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-container">
-                        <img src="images/tpy.png" alt="案例4">
+                        <img src="images/tpy.webp" alt="案例4" loading="lazy" width="600" height="330">
                     </div>
                     <div class="caption">太平洋保险</div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-container">
-                        <img src="images/tpy2.jpg" alt="案例5">
+                        <img src="images/tpy2.webp" alt="案例5" loading="lazy" width="1080" height="1620">
                     </div>
                     <div class="caption">公关活动</div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-container">
-                        <img src="images/tpy3.jpg" alt="案例6">
+                        <img src="images/tpy3.webp" alt="案例6" loading="lazy" width="1080" height="1620">
                     </div>
                     <div class="caption">创意孵化</div>
                 </div>
