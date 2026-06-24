@@ -306,28 +306,5 @@
 
     <!-- 不蒜子脚本 -->
     <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-    <!-- 文章页浏览量起点脚本（171926） -->
-    <script>
-    (function() {
-        var pageOffset = 0; // 文章页起点1001，请按需修改
-        var pageDisplay = document.querySelectorAll('#busuanzi_value_page_pv');
-        
-        var timer = setInterval(function() {
-            var valueSpan = document.getElementById('busuanzi_value_page_pv');
-            if (valueSpan && valueSpan.innerText) {
-                var cleanNum = valueSpan.innerText.replace(/[^0-9]/g, '');
-                var bszNum = parseInt(cleanNum, 10) || 0;
-                var totalNum = 221679;
-                
-                // 更新所有显示位置
-                document.querySelectorAll('#busuanzi_value_page_pv').forEach(function(el) {
-                    el.innerText = totalNum;
-                });
-                clearInterval(timer);
-            }
-        }, 100);
-    })();
-    </script>
 </body>
 </html>
